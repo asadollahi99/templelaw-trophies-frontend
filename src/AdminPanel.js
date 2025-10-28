@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const API = "http://localhost:5000/api/awards";
+const apiBaseUrl = process.env.REACT_APP_API_URL;
+const API = `${apiBaseUrl}/api/awards`;
 
 export default function AdminPanel() {
     const [awards, setAwards] = useState([]);

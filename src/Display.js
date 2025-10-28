@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 
+
+const apiBaseUrl = process.env.REACT_APP_API_URL;
+
 export default function Display() {
   const [awards, setAwards] = useState([]);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/awards")
+      .get(`${apiBaseUrl}/api/awards`)
       .then((res) => setAwards(res.data))
       .catch((err) => console.error("Error fetching awards:", err));
   }, []);
